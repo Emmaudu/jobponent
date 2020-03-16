@@ -2,15 +2,22 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+
 // Load User model
 const User = require('../models/User');
+
+
+
 const { forwardAuthenticated } = require('../config/auth');
 
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
+// router.get('/mentorlogin', forwardAuthenticated, (req, res) => res.render('mentorlogin'));
+
 
 // Register Page
 router.get('/signup', forwardAuthenticated, (req, res) => res.render('signup'));
+// router.get('/mentorsignup', forwardAuthenticated, (req, res) => res.render('mentorsignup'));
 
 // Register
 router.post('/signup', (req, res) => {
@@ -79,7 +86,7 @@ router.post('/signup', (req, res) => {
   }
 });
 
-// Login
+// Logins
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/dashboard',
@@ -95,10 +102,10 @@ router.get('/logout', (req, res) => {
   res.redirect('/users/login');
 });
 
-router.get('/pay', (req, res) => {
-  req.dashboard();
-  req.flash('success_msg', 'You are logged out');
-  res.redirect('/paystack/pay');
-});
+// router.get('/pay', (req, res) => {
+//   req.dashboard();
+//   req.flash('success_msg', 'You are logged out');
+//   res.redirect('/paystack/pay');
+// });
 
 module.exports = router;

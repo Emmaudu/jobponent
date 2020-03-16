@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 // Load User model
 const User = require('../models/User');
+// const mentor = require('models/mentor');
 
 module.exports = function(passport) {
   passport.use(
@@ -14,6 +15,8 @@ module.exports = function(passport) {
         if (!user) {
           return done(null, false, { message: 'That email is not registered' });
         }
+
+
 
         // Match password
         bcrypt.compare(password, user.password, (err, isMatch) => {

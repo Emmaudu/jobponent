@@ -1,3 +1,6 @@
+var mongoose = require('mongoose');
+
+
 module.exports = {
   ensureAuthenticated: function(req, res, next) {
     if (req.isAuthenticated()) {

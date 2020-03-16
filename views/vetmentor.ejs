@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log In - MentorCruise</title>
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="index.html">
+<link rel="apple-touch-icon" sizes="180x180" href="../img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/favicon-16x16.png">
+<link rel="manifest" href="../../manifest.json">
+<link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="">
+<meta name="og:description" content="">
+<meta name="og:image" content="../img/twitter_card.png">
+<link rel="stylesheet" type="text/css" href="../css1/bulma.css" />
+<link rel="stylesheet" type="text/css" href="../css1/mentorcruise.css" />
+<link rel="icon" href="images/favicon.ico">
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="../css/app.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="../css1/mentorcruise-v2.0.0.css" />
+<link rel="stylesheet" type="text/css" href="../css1/styles.css" />
+<link href="../../../fonts.googleapis.com/css2579.css?family=Karla:400,400i,500,600,700,800" rel="stylesheet">
+<style>
+        @import url('../../../rsms.me/inter/inter-ui.css');
+
+        html, body {
+            font-family: 'Inter UI', sans-serif;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero.is-primary .nav-menu {
+                background-color: #f8f8f8;
+            }
+        }
+
+    </style>
+<script type="text/javascript">
+        (function (e, t) {
+            var n = e.amplitude || {_q: [], _iq: {}};
+            var r = t.createElement("script")
+            ;r.type = "text/javascript"
+            ;r.integrity = "sha384-vYYnQ3LPdp/RkQjoKBTGSq0X5F73gXU3G2QopHaIfna0Ct1JRWzwrmEz115NzOta"
+            ;r.crossOrigin = "anonymous";
+            r.async = true
+            ;r.src = "../../../cdn.amplitude.com/libs/amplitude-5.8.0-min.gz.js"
+            ;r.onload = function () {
+                if (!e.amplitude.runQueuedFunctions) {
+                    console.log("[Amplitude] Error: could not load SDK")
+                }
+            }
+            ;var i = t.getElementsByTagName("script")[0];
+            i.parentNode.insertBefore(r, i)
+            ;
+
+            function s(e, t) {
+                e.prototype[t] = function () {
+                    this._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                    return this
+                }
+            }
+
+            var o = function () {
+                    this._q = [];
+                    return this
+                }
+            ;var a = ["add", "append", "clearAll", "prepend", "set", "setOnce", "unset"]
+            ;
+            for (var u = 0; u < a.length; u++) {
+                s(o, a[u])
+            }
+            n.Identify = o;
+            var c = function () {
+                    this._q = []
+                    ;
+                    return this
+                }
+            ;var l = ["setProductId", "setQuantity", "setPrice", "setRevenueType", "setEventProperties"]
+            ;
+            for (var p = 0; p < l.length; p++) {
+                s(c, l[p])
+            }
+            n.Revenue = c
+            ;var d = ["init", "logEvent", "logRevenue", "setUserId", "setUserProperties", "setOptOut", "setVersionName", "setDomain", "setDeviceId", "enableTracking", "setGlobalUserProperties", "identify", "clearUserProperties", "setGroup", "logRevenueV2", "regenerateDeviceId", "groupIdentify", "onInit", "logEventWithTimestamp", "logEventWithGroups", "setSessionId", "resetSessionId"]
+            ;
+
+            function v(e) {
+                function t(t) {
+                    e[t] = function () {
+                        e._q.push([t].concat(Array.prototype.slice.call(arguments, 0)))
+                    }
+                }
+
+                for (var n = 0; n < d.length; n++) {
+                    t(d[n])
+                }
+            }
+
+            v(n);
+            n.getInstance = function (e) {
+                e = (!e || e.length === 0 ? "$default_instance" : e).toLowerCase()
+                ;
+                if (!n._iq.hasOwnProperty(e)) {
+                    n._iq[e] = {_q: []};
+                    v(n._iq[e])
+                }
+                return n._iq[e]
+            }
+            ;e.amplitude = n
+        })(window, document);
+
+        amplitude.getInstance().init("675f207090826f314ba5a3074e7a0931");
+    </script>
+<style>
+
+        #google-signin {
+            background-image: url('../public/login/img/signin/google_normal.png');
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            display: block;
+            width: 185px;
+            height: 44px;
+            transition: background-image 0.5s;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        #google-signin:hover {
+            background-image: url('../public/login/img/signin/google_pressed.png');
+        }
+
+    </style>
+</head>
+
+        <body>
+    <div class="hero pb-5">
+        <nav class="navbar main-navbar navbar-expand-lg">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">
+            <img src="images/schoolable-logo.png" style="width: 12rem;">
+        </a>
+
+        <button class="d-block d-lg-none border-0 navbar-mobile-toggle" type="button" aria-controls="mobileNavbar"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="d-lg-none navbar-mobile flex-column" id="mobileNavbar">
+            <div class="navbar-mobile__close navbar-mobile-toggle position-absolute position__top-right"
+                style="cursor: pointer;" aria-controls="mobileNavbar" aria-expanded="false"
+                aria-label="Toggle navigation" data-feather="x"></div>
+            <div class="row p-3">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 class="navbar-mobile__header font-semibold">Products</h6>
+                            <a href="parents.html" class="dropdown-item">
+                                Parents
+                            </a>
+                            <a href="schools.html" class="dropdown-item">
+                                Schools
+                            </a>
+                            <a href="partners.html" class="dropdown-item">
+                                Partners
+                            </a>
+
+                            <h6 class="navbar-mobile__header font-semibold mt-4">Company</h6>
+                            <a href="index.html" class="dropdown-item">
+                                Home
+                            </a>
+                            <a href="about.html" class="dropdown-item">
+                                About
+                            </a>
+                            <a href="https://blog.schoolable.co/" target="_blank" class="dropdown-item">
+                                Blog
+                            </a>
+                            <a href="faq.html" class="dropdown-item">
+                                Faq
+                            </a>
+                            <a href="contact.html" class="dropdown-item">
+                                Contact
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <h6 class="navbar-mobile__header font-semibold">For Parents</h6>
+                            <a href="plan.html" class="dropdown-item">
+                                Plan
+                            </a>
+                            <a href="save.html" class="dropdown-item">
+                                Save
+                            </a>
+                            <a href="pay-fees.html" class="dropdown-item">
+                                Pay Fees
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="dropright dropright--sm dropright--anchored-bottom-right">
+                    <button class="btn btn-light lift ml-auto mr-4 text-secondary" style="padding: .5rem;" type="button"
+                        id="loginMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Login <i data-feather="chevron-right" class="text-icon"></i>
+                    </button>
+                    <div class="dropdown-menu" style="padding-left: 1.75rem; padding-right: 1.75rem;"
+                        aria-labelledby="loginMenuButton">
+                        <a class="dropdown-item text-hyperlink mb-1" href="">
+                            For Mentors
+                        </a>
+                        <a class="dropdown-item text-hyperlink mb-1" href="">
+                            For Mentees   </a>
+                    </div>
+                </div>
+                <div class="dropright dropright--sm dropright--anchored-bottom-right">
+                    <button class="btn btn-secondary border-0 lift text-white lift" style="padding: .5rem;"
+                        type="button" id="loginMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Get Started <i data-feather="chevron-right" class="text-icon"></i>
+                    </button>
+                    <div class="dropdown-menu" style="padding-left: 1.75rem; padding-right: 1.75rem;"
+                        aria-labelledby="loginMenuButton">
+                        <a class="dropdown-item text-hyperlink mb-1" href="">
+                            For Mentors
+                        </a>
+                        <a class="dropdown-item text-hyperlink mb-1" href="">For
+                            Mentees</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fe fe-x"></i>
+            </button>
+
+            <ul class="navbar-nav main-navbar__menu ml-auto">
+                
+                <li class="nav-item mr-4 ">
+                    <a href="schools.html" class="nav-link text-primary font-semibold">
+                        Tech
+                    </a>
+                </li>
+                <li class="nav-item mr-4 ">
+                    <a href="partners.html" class="nav-link text-primary font-semibold">
+                        Business
+                    </a>
+                </li>
+                <li class="nav-item dropdown mr-4">
+                    <a href="#" class="nav-link text-primary font-semibold" data-toggle="dropdown" aria-expanded="false"
+                        aria-haspopup="true">
+                        Company <i data-feather="chevron-down" class="text-icon"></i></a>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-primary" href="about.html">About Us</a>
+                        <a class="dropdown-item text-primary" href="contact.html">Contact</a>
+                        <a class="dropdown-item text-primary" href="faq.html">FAQ</a>
+                        <a class="dropdown-item text-primary" href="https://blog.schoolable.co/" target="_blank">Blog</a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="btn btn-outline-secondary lift ml-auto mr-4" style="padding: .3rem;"
+                        data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                        Log in <i data-feather="chevron-down" class="text-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-primary mb-1" href="https://app.schoolable.co/login">
+                            For Mentors
+                        </a>
+                        <a class="dropdown-item text-primary mb-1" href="https://pay.schoolable.co/">For
+                            Mentees</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="btn btn-secondary border-0 lift text-white" style="padding: .3rem; padding-left: .7rem;"
+                        data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                        Get Started <i data-feather="chevron-down" class="text-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-primary mb-1" href="https://app.schoolable.co/register">
+                            For Mentors
+                        </a>
+                        <a class="dropdown-item text-primary mb-1" href="https://pay.schoolable.co/">For
+                            Mentees</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>       
+
+    
+
+    <section class="py-5 section section--alt-blue position-relative">
+
+
+        <div class="login-wrapper columns">
+
+        <div class="column is-8">
+        <section class="hero is-fullheight">
+
+        <div class="hero-body hero-padding-small ">
+        <div class="container">
+        <div class="columns">
+        <div class="column is-10 is-offset-5">
+
+                        <div class="container-wide">
+
+
+<section class="application">
+<div class="columns is-mobile">
+<div class="column is-12">
+<div class="content blog-post section">
+
+
+
+
+    <form action="/a" method="post">
+    <div class="columns">
+
+    <div class="column is-9">
+    <div class="">
+    <label for="id_profile_picture">Profile picture:</label><br />
+    <small><i>Show us how you look like! Image should be at least 400x400 pixels big.</i><span id="notice-profile_picture"></span></small><br />
+    <div class="">
+    <input type="file" name="profile_picture" value="<%= picture %>"  required id="id_profile_picture" />
+    </div>
+    </div>
+    
+    <img src="<%=picture %>" alt="">
+    
+
+    <div class="columns">
+    <div class="column">
+    <div class="">
+    <label for="id_first_name">First name:</label><br />
+    <div class="">
+    <input type="text" name="firstname" value="<%= fname1 %>" required maxlength="255" id="id_first_name"  disabled/>
+    </div>
+    </div>
+    </div>
+    <div class="column">
+    <div class="">
+    <label for="id_last_name">Last name:</label><br />
+    <div class="">
+    <input type="text" name="lastname" placeholder="<%= lname1 %>" required maxlength="243" id="id_last_name" disabled />
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    <!-- </div>
+    </div>
+    </div> -->
+
+
+    <div class="">
+    <label for="id_email">Email:</label><br />
+    <div class="">
+    <input type="text" name="email" value= "<%=email1 %>"  required maxlength="255" id="id_email" disabled/>
+    </div>
+    </div>
+
+<div class="columns">
+        <div class="column">
+        <div class="">
+        <label for="id_job_title">Job title:</label><br />
+        <div class="">
+        <input type="text" name="job_title" value= "<%=jobtitle %>"  required maxlength="255" id="id_job_title"  disabled/>
+        
+        </div>
+        </div>
+        </div>
+
+        <div class="column">
+        <div class="">
+        <label for="id_company">Company:</label><br />
+        <div class="">
+        <input type="text" name="company" value= "<%=company %>"  required maxlength="255" id="id_company" disabled/>
+        </div>
+        </div>
+        </div>
+
+</div>
+
+ <div class="field">
+<label for="id_location">Location:</label><br />
+<div class="control select">
+<select type="text" value= "<%=location %>" name="location" id="id_location">
+<option value="<%=location %>" selected><%=location %></option>
+<option value="AF">Afghanistan</option>
+<option value="AX">Åland Islands</option>
+<option value="AL">Albania</option>
+<option value="DZ">Algeria</option>
+<option value="AS">American Samoa</option>
+<option value="AD">Andorra</option>
+<option value="AO">Angola</option>
+<option value="AI">Anguilla</option>
+<option value="AQ">Antarctica</option>
+<option value="AG">Antigua and Barbuda</option>
+<option value="AR">Argentina</option>
+<option value="AM">Armenia</option>
+<option value="AW">Aruba</option>
+<option value="AU">Australia</option>
+<option value="AT">Austria</option>
+<option value="AZ">Azerbaijan</option>
+<option value="BS">Bahamas</option>
+<option value="BH">Bahrain</option>
+<option value="BD">Bangladesh</option>
+<option value="BB">Barbados</option>
+<option value="BY">Belarus</option>
+<option value="BE">Belgium</option>
+<option value="BZ">Belize</option>
+<option value="BJ">Benin</option>
+<option value="BM">Bermuda</option>
+<option value="BT">Bhutan</option>
+<option value="BO">Bolivia</option>
+<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+<option value="BA">Bosnia and Herzegovina</option>
+<option value="BW">Botswana</option>
+<option value="BV">Bouvet Island</option>
+<option value="BR">Brazil</option>
+<option value="IO">British Indian Ocean Territory</option>
+<option value="BN">Brunei</option>
+<option value="BG">Bulgaria</option>
+<option value="BF">Burkina Faso</option>
+<option value="BI">Burundi</option>
+<option value="CV">Cabo Verde</option>
+<option value="KH">Cambodia</option>
+<option value="CM">Cameroon</option>
+<option value="CA">Canada</option>
+<option value="KY">Cayman Islands</option>
+<option value="CF">Central African Republic</option>
+<option value="TD">Chad</option>
+<option value="CL">Chile</option>
+<option value="CN">China</option>
+<option value="CX">Christmas Island</option>
+<option value="CC">Cocos (Keeling) Islands</option>
+<option value="CO">Colombia</option>
+<option value="KM">Comoros</option>
+<option value="CG">Congo</option>
+<option value="CD">Congo (the Democratic Republic of the)</option>
+<option value="CK">Cook Islands</option>
+<option value="CR">Costa Rica</option>
+<option value="CI">Côte d&#39;Ivoire</option>
+<option value="HR">Croatia</option>
+<option value="CU">Cuba</option>
+<option value="CW">Curaçao</option>
+<option value="CY">Cyprus</option>
+<option value="CZ">Czechia</option>
+<option value="DK">Denmark</option>
+<option value="DJ">Djibouti</option>
+<option value="DM">Dominica</option>
+<option value="DO">Dominican Republic</option>
+<option value="EC">Ecuador</option>
+<option value="EG">Egypt</option>
+<option value="SV">El Salvador</option>
+<option value="GQ">Equatorial Guinea</option>
+<option value="ER">Eritrea</option>
+<option value="EE">Estonia</option>
+<option value="SZ">Eswatini</option>
+<option value="ET">Ethiopia</option>
+<option value="FK">Falkland Islands [Malvinas]</option>
+<option value="FO">Faroe Islands</option>
+<option value="FJ">Fiji</option>
+<option value="FI">Finland</option>
+<option value="FR">France</option>
+<option value="GF">French Guiana</option>
+<option value="PF">French Polynesia</option>
+<option value="TF">French Southern Territories</option>
+<option value="GA">Gabon</option>
+<option value="GM">Gambia</option>
+<option value="GE">Georgia</option>
+<option value="DE">Germany</option>
+<option value="GH">Ghana</option>
+<option value="GI">Gibraltar</option>
+<option value="GR">Greece</option>
+<option value="GL">Greenland</option>
+<option value="GD">Grenada</option>
+<option value="GP">Guadeloupe</option>
+<option value="GU">Guam</option>
+<option value="GT">Guatemala</option>
+<option value="GG">Guernsey</option>
+<option value="GN">Guinea</option>
+<option value="GW">Guinea-Bissau</option>
+<option value="GY">Guyana</option>
+<option value="HT">Haiti</option>
+<option value="HM">Heard Island and McDonald Islands</option>
+<option value="VA">Holy See</option>
+<option value="HN">Honduras</option>
+<option value="HK">Hong Kong</option>
+<option value="HU">Hungary</option>
+<option value="IS">Iceland</option>
+<option value="IN">India</option>
+<option value="ID">Indonesia</option>
+<option value="IR">Iran</option>
+<option value="IQ">Iraq</option>
+<option value="IE">Ireland</option>
+<option value="IM">Isle of Man</option>
+<option value="IL">Israel</option>
+<option value="IT">Italy</option>
+<option value="JM">Jamaica</option>
+<option value="JP">Japan</option>
+<option value="JE">Jersey</option>
+<option value="JO">Jordan</option>
+<option value="KZ">Kazakhstan</option>
+<option value="KE">Kenya</option>
+<option value="KI">Kiribati</option>
+<option value="KW">Kuwait</option>
+<option value="KG">Kyrgyzstan</option>
+<option value="LA">Laos</option>
+<option value="LV">Latvia</option>
+<option value="LB">Lebanon</option>
+<option value="LS">Lesotho</option>
+<option value="LR">Liberia</option>
+<option value="LY">Libya</option>
+<option value="LI">Liechtenstein</option>
+<option value="LT">Lithuania</option>
+<option value="LU">Luxembourg</option>
+<option value="MO">Macao</option>
+<option value="MK">Macedonia</option>
+<option value="MG">Madagascar</option>
+<option value="MW">Malawi</option>
+<option value="MY">Malaysia</option>
+<option value="MV">Maldives</option>
+<option value="ML">Mali</option>
+<option value="MT">Malta</option>
+<option value="MH">Marshall Islands</option>
+<option value="MQ">Martinique</option>
+<option value="MR">Mauritania</option>
+<option value="MU">Mauritius</option>
+<option value="YT">Mayotte</option>
+<option value="MX">Mexico</option>
+<option value="FM">Micronesia (Federated States of)</option>
+<option value="MD">Moldova</option>
+<option value="MC">Monaco</option>
+<option value="MN">Mongolia</option>
+<option value="ME">Montenegro</option>
+<option value="MS">Montserrat</option>
+<option value="MA">Morocco</option>
+<option value="MZ">Mozambique</option>
+<option value="MM">Myanmar</option>
+<option value="NA">Namibia</option>
+<option value="NR">Nauru</option>
+<option value="NP">Nepal</option>
+<option value="NL">Netherlands</option>
+<option value="NC">New Caledonia</option>
+<option value="NZ">New Zealand</option>
+<option value="NI">Nicaragua</option>
+<option value="NE">Niger</option>
+<option value="NG">Nigeria</option>
+<option value="NU">Niue</option>
+<option value="NF">Norfolk Island</option>
+<option value="KP">North Korea</option>
+<option value="MP">Northern Mariana Islands</option>
+<option value="NO">Norway</option>
+<option value="OM">Oman</option>
+<option value="PK">Pakistan</option>
+<option value="PW">Palau</option>
+<option value="PS">Palestine, State of</option>
+<option value="PA">Panama</option>
+<option value="PG">Papua New Guinea</option>
+<option value="PY">Paraguay</option>
+<option value="PE">Peru</option>
+<option value="PH">Philippines</option>
+<option value="PN">Pitcairn</option>
+<option value="PL">Poland</option>
+<option value="PT">Portugal</option>
+<option value="PR">Puerto Rico</option>
+<option value="QA">Qatar</option>
+<option value="RE">Réunion</option>
+<option value="RO">Romania</option>
+<option value="RU">Russia</option>
+<option value="RW">Rwanda</option>
+<option value="BL">Saint Barthélemy</option>
+<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+<option value="KN">Saint Kitts and Nevis</option>
+<option value="LC">Saint Lucia</option>
+<option value="MF">Saint Martin (French part)</option>
+<option value="PM">Saint Pierre and Miquelon</option>
+<option value="VC">Saint Vincent and the Grenadines</option>
+<option value="WS">Samoa</option>
+<option value="SM">San Marino</option>
+<option value="ST">Sao Tome and Principe</option>
+<option value="SA">Saudi Arabia</option>
+<option value="SN">Senegal</option>
+<option value="RS">Serbia</option>
+<option value="SC">Seychelles</option>
+<option value="SL">Sierra Leone</option>
+<option value="SG">Singapore</option>
+<option value="SX">Sint Maarten (Dutch part)</option>
+<option value="SK">Slovakia</option>
+<option value="SI">Slovenia</option>
+<option value="SB">Solomon Islands</option>
+<option value="SO">Somalia</option>
+<option value="ZA">South Africa</option>
+<option value="GS">South Georgia and the South Sandwich Islands</option>
+<option value="KR">South Korea</option>
+<option value="SS">South Sudan</option>
+<option value="ES">Spain</option>
+<option value="LK">Sri Lanka</option>
+<option value="SD">Sudan</option>
+<option value="SR">Suriname</option>
+<option value="SJ">Svalbard and Jan Mayen</option>
+<option value="SE">Sweden</option>
+<option value="CH">Switzerland</option>
+<option value="SY">Syria</option>
+<option value="TW">Taiwan</option>
+<option value="TJ">Tajikistan</option>
+<option value="TZ">Tanzania</option>
+<option value="TH">Thailand</option>
+<option value="TL">Timor-Leste</option>
+<option value="TG">Togo</option>
+<option value="TK">Tokelau</option>
+<option value="TO">Tonga</option>
+<option value="TT">Trinidad and Tobago</option>
+<option value="TN">Tunisia</option>
+<option value="TR">Turkey</option>
+<option value="TM">Turkmenistan</option>
+<option value="TC">Turks and Caicos Islands</option>
+<option value="TV">Tuvalu</option>
+<option value="UG">Uganda</option>
+<option value="UA">Ukraine</option>
+<option value="AE">United Arab Emirates</option>
+<option value="GB">United Kingdom</option>
+<option value="UM">United States Minor Outlying Islands</option>
+<option value="US">United States of America</option>
+<option value="UY">Uruguay</option>
+<option value="UZ">Uzbekistan</option>
+<option value="VU">Vanuatu</option>
+<option value="VE">Venezuela</option>
+<option value="VN">Vietnam</option>
+<option value="VG">Virgin Islands (British)</option>
+<option value="VI">Virgin Islands (U.S.)</option>
+<option value="WF">Wallis and Futuna</option>
+<option value="EH">Western Sahara</option>
+<option value="YE">Yemen</option>
+<option value="ZM">Zambia</option>
+<option value="ZW">Zimbabwe</option>
+</select>
+</div>
+</div>
+<div class="field">
+<label for="id_hel">Highest Educational Level:</label><br />
+<div class="control select">
+<select name="hel" value= "<%=education%>" required id="id_hel">
+<option value="<%=education%>" selected><%=education%></option>
+<option value="Other">None / Other</option>
+<option value="Dropout">Dropout</option>
+<option value="Bachelor">Bachelor</option>
+<option value="Master">Master</option>
+<option value="PhD">PhD</option>
+</select>
+</div>
+</div>
+</div></div>
+<hr />
+
+<div class="columns">
+<div class="column is-3"><h2 class="title is-4">Mentorship
+Questions</h2>
+<p>
+<small><i>We'd like to learn more about your skills, who you are
+and
+some more formalities. Take some time to craft your Bio
+since it'll be visible to potential mentees.</i>
+</small>
+</p>
+</div>
+<div class="column is-9">
+<div class="field">
+<label for="id_category">Category:</label><br />
+<small><i>The category you will be mentoring for.</i><span id="notice-category"></span></small><br />
+
+<div class="control select">
+     <input type="text" value="<%=category %>" id="">
+</div>
+</div>
+<div class="">
+<label for="id_tags">Tags:</label><br />
+<small><i>Comma-separated list of your skills (keep it below 10). Mentees will use this to find you.</i><span id="notice-tags"></span></small><br />
+<div class="">
+<input type="text" name="tags" value= "<%=tag %>"  required maxlength="512" id="id_tags" disabled />
+</div>
+</div>
+<div class="">
+<label for="id_price">Weekly Price in NGN :</label><br />
+<small><i>We are encouraging you to set the price to 0.00 if you want to mentor for free. There is a 20% platform fee on each payment made and a limit of $50/week</i><span id="notice-price"></span></small><br />
+<div class="">
+<input type="text" name="price"  value= "<%=price %>"  required step="any" id="id_price" disabled/>
+
+</div>
+</div>
+
+<!-- <div class="">
+<label for="id_student_limit">Student limit:</label><br />
+<small><i>The maximum amount of mentees you will mentor at the same time.</i><span id="notice-student_limit"></span></small><br />
+<div class="">
+<input type="number" name="student_limit" value= "<%= %>" value="5" required id="id_student_limit" />
+</div>
+</div> -->
+
+<div class="">
+<label for="id_bio">Bio:</label><br />
+<small><i>Tell us (and your students) a little bit about yourself. This will be public. Please write any information your mentees might need in here. Also disclose if you want to mentor a specific minority. Keep it short, but not too short.</i><span id="notice-bio"></span></small><br />
+<div class="">
+<textarea name="bio" cols="40" required rows="10" id="id_bio" class="textarea" disabled><%=bio %></textarea>
+</div>
+</div>
+<div class="">
+<label for="id_twitter_handle">Twitter Handle (optional):</label><br />
+<small><i>No &quot;@&quot; - e.g. &quot;dqmonn&quot;</i><span id="notice-twitter_handle"></span></small><br />
+<div class="">
+<input type="text" name="twitter_handle" value= "<%=twitter %>" maxlength="255" id="id_twitter_handle" disabled />
+</div>
+</div>
+<div class="">
+<label for="id_linkedin_url">LinkedIn URL (optional):</label><br />
+<div class="">
+<input type="text" name="linkedin_url" value= "<%=linkedin %>" maxlength="255" id="id_linkedin_url" />
+</div>
+</div>
+</div></div>
+<hr />
+<div class="columns">
+<div class="column is-3"><h2 class="title is-4">Interview Questions</h2>
+<p>
+<small><i>Let's get to the actual interview, tell us a little bit
+about
+yourself (more than one sentence!).</i></small>
+</p>
+</div>
+<div class="column is-9">
+<div class="">
+<label for="id_why">INTERVIEW: Why do you want to become a mentor? (Not publicly visible):</label><br />
+<div class="">
+<textarea name="why"  cols="40" required rows="10" id="id_why" class="textarea" disabled><%=interview1 %></textarea>
+</div>
+</div>
+<div class="">
+<label for="id_successes">INTERVIEW: What is your greatest career success so far? (Not publicly visible):</label><br />
+<div class="">
+<textarea name="successes" cols="40" required rows="10" id="id_successes" class="textarea" disabled><%=interview2 %></textarea>
+</div>
+</div>
+<div class="">
+<label for="id_password">Password:</label><br />
+<div class="">
+<input type="text" name="password" value= "<%=password %>" required id="id_password" disabled/>
+</div>
+</div>
+</div></div>
+<hr />
+<div class="columns">
+<div class="column is-3"><h2 class="title is-4">Services</h2>
+<p>
+<small><i>Tell us a little bit about the services you would like to provide.
+Only
+choose
+"Chat"
+if
+you want to do the bare minimum (which is still valuable!). Remember:
+More
+services
+means more time commitment.</i></small>
+</p>
+</div>
+<div class="column is-9">
+<div class="notification is-warning is-hidden" id="service-notice">As part of our
+most premium pricing category, please enable all services (incl. 1-on-1 calls) or change your pricing if you're not comfortable with that.
+</div>
+<div class="field field-services">
+<div class="control">
+<input type="checkbox" name="chat" value= "<%=chat %>"  checked="checked" class="services" id="id_chat" disabled>
+<label for="id_chat">Chat: <%=goals %></label>
+</div>
+<small>Ability to chat with your mentee. (Required)</small>
+</div>
+ <div class="field field-services">
+<div class="control">
+<input type="checkbox" name="goals" value= "<%=goals %>" checked id="id_goals" class="services" /> <label for="id_goals">Goals &amp; Activities:<%=goals %></label>
+</div>
+<small>Give your mentee a weekly or monthly to-do-list of activities and goals. (Recommended)</small>
+</div>
+<div class="field field-services">
+<div class="control">
+<input type="checkbox" name="challenge" value= "<%= challenge %>"  id="id_challenge" class="services" /> <label for="id_challenge">Sample Projects &amp; Challenges: <%=goals %></label>
+</div>
+<small>Give your mentee sample projects and coding challenges from time to time.</small>
+</div>
+<div class="field field-services">
+<div class="control">
+<input type="checkbox" name="one_on_one" value= "<%=oneone %>"  id="id_one_on_one" class="services" /> <label for="id_one_on_one">1-on-1 Talks: <%=goals %></label>
+</div>
+<small>Availability for 1-on-1 talks via video chat or phone.</small>
+</div>
+<div class="field field-services">
+<div class="control">
+<input type="checkbox" name="coding_support" value= "<%=codingsupport %>" id="id_coding_support" class="services" /> <label for="id_coding_support">Hands-on Support: <%=goals %></label>
+</div>
+<small>Give your mentee hands-on support (e.g. helping w/ code or other work)</small>
+</div>
+<h5 class="title">We estimate a time commitment of <b><a class="button is-info is-small" id="time-estimate">30</a></b>
+minutes
+per week and mentee.</h5>
+</div>
+</div>
+<div class="columns">
+<div class="column is-3"></div>
+<div class="column is-9">
+<p>Please note that you accept our <a href="../../tos/index.html">Terms of
+Service</a>
+and
+the
+<a href="../../ma/index.html">mentor agreement</a> by sending this
+application
+form. This includes our terms, such as providing a <b>7-day free trial</b> to
+mentees and accepting the <b>platform fee of 20%</b> (not
+including fees imposed by payment processors) on all payouts made. We will
+usually get in touch in a week.
+</p>
+
+<button class="button primary-green">Approve</button>
+<button class="button primary-green">Reject</button>
+<br><br>
+<button class="button primary-green">Ignore</button>
+
+</div>
+</div>
+
+
+</form>
+
+    
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</section>
+</div>
+
+
+
+        
+
+
+        
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>
+        </div>
+        </div>
+
+
+    </section>
+
+
+
+                
+
+
+
+
+                
+
+
+
+
+<script src="../cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js">
+</script>
+<script src="../cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"></script>
+<script>
+feather.replace();
+</script>
+<script src="js/script.js"></script></body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body class="">
+<div class="login-wrapper columns">
+<div class="column is-4 is-hidden-mobile hero-banner">
+<section class="hero is-fullheight is-primary" style="height:100%;">
+<div class="hero-body">
+<div class="container section">
+<div class="has-text-centered">
+<a href="../../index.html"><img src="../public/login/img/cruise_white_small.png" width="120px" alt="MentorCruise Logo White" /></a>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="column is-8">
+<section class="hero is-fullheight">
+<div class="hero-heading">
+<div class="section section-small has-text-right">
+<span class="text-blue" style="display: inline-block; margin-top: 5px;"><small>Don't have an account yet? &nbsp;</small></span>
+<a class="button is-blue is-outlined is-inverted is-edged" href="../signup/index.html">
+<span>Sign Up</span>
+</a>
+</div>
+</div>
+<div class="hero-body hero-padding-small ">
+<div class="container">
+<div class="columns">
+<div class="column is-10 is-offset-1">
+<nav class="breadcrumb " aria-label="breadcrumbs">
+<ul>
+<li><a class="first" href="../../index.html">Home</a></li>
+<li class="is-active"><a href="#" aria-current="page">Log In</a></li>
+</ul>
+</nav>
+<h2 class="title title-blue">Login</h2>
+<form method="post" class="v2">
+<input type='hidden' name='csrfmiddlewaretoken' value='gKbhfkCaWucaOyBLeunAk1w4KBEaXBR9Lmw805A2fn5vWr9V0J9shLIwfVQrFZLQ' />
+<p><label for="id_username">E-Mail or Username:</label> <input type="text" name="username" required id="id_username" /></p>
+<p><label for="id_password">Password:</label> <input type="password" name="password" required id="id_password" /></p>
+<div align="center">
+<a id="google-signin" href="google-oauth2/index.html" title="Login with Google"></a>
+<button type="submit" class="button primary-green" style="margin-top: 18px;">
+Login
+</button>
+</div>
+</form>
+<p class="text-blue" style="margin-top: 8px; font-weight: 300; text-align: center">
+<small>Forgot your username/password? <a href="../password_reset/index.html">Click
+here.</a>
+</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</body> -->
+
+<!-- Mirrored from mentorcruise.com/auth/login/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2020 01:33:24 GMT -->
+</html>

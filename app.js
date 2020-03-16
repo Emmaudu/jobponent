@@ -1,11 +1,18 @@
 const express = require('express');
+const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const flash = require('connect-flash');
+const flash = require('connect-flash');;
 const session = require('express-session');
 
+var cookieParser = require('cookie-parser');
 const request = require('request');
+var mongoStore = require('connect-mongo')(session);
+var fs = require('fs');
+var logger = require('morgan');
+var methodOverride = require('method-override');
+app.use(logger('dev'));
 const bodyParser = require('body-parser');
 const pug = require('pug');
 const _ = require('lodash');
@@ -16,36 +23,12 @@ const {Donor} = require('./models/donor')
 const {initializePayment, verifyPayment} = require('./config/paystack')(request);
 
 
-const app = express();
 
-// Passport Config
-require('./config/passport')(passport);
-
-// DB Config
-const db = require('./config/keys').mongoURI;
-
-// Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
-
-// app.engine('pug', require('pug').__express)
-// app.engine('html', require('ejs').renderFile)
-
-
-// app.engine('ejs', engines.ejs)
-// app.engine('pug', engines.pug)
-
+var http =require('http').Server(app)
 
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
-// app.set('view engine', 'pug');
-
 
 
 // Express body parser
@@ -53,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'public/')));
 
 
@@ -88,114 +71,32 @@ app.use('/users', require('./routes/users.js'));
 
 const PORT = process.env.PORT || 3000;
 
-var picture=[];
-var fname=[];
-var lname=[];
-var location=[];
-var company=[];
-var bio= [];
-var category=[];
-var education=[];
-var email=[];
-var price=[];
-var tag=[];
-var codingsupport=[];
-var challenge=[];
-var chat=[];
-var oneone=[];
-var goals=[];
-var interview2=[];
-var interview1=[];
-var linkedin=[];
-var twitter=[];
-var password=[];
-var jobtitle=[];
-
-
-
-
-app.get('/admin', (req, res)=>{
-    //Another Way
-    res.render('admin', {picture: picture, fname: fname, lname: lname, bio: bio, company: company, oneone: oneone, price: price,tag: tag, password: password, goals: goals, email: email, tag: tag, category: category, twitter: twitter, linkedin: linkedin, codingsupport: codingsupport, chat: chat, interview1: interview1, interview2: interview2, challenge: challenge, location: location, jobtitle: jobtitle, education: education});
-   
-});
-
-app.post('/a', (req, res)=>{
-
-        // user: req.user
-  
-  var pic = req.body.profile_picture;    
-  var s = req.body.firstname;
-  var las = req.body.lastname;
-  var ema = req.body.email;
-  var job = req.body.job_title;
-  var comp = req.body.company;
-  var loc = req.body.location;
-  var he = req.body.hel;
-  var cat = req.body.category;
-  var tagg = req.body.tags;
-  var pri = req.body.price;
-  var bioo = req.body.bio;
-  var twit = req.body.twitter_handle;
-  var link = req.body.linkedin_url;
-  var whyy= req.body.why;
-  var succ = req.body.successes;
-  var pass= req.body.password;
-  var chatt = req.body.chat;
-  var goall= req.body.goals;
-  var chall= req.body.challenge;
-  var one = req.body.one_on_one;
-  var code = req.body.coding_support;
-  
-        console.log(las)
-
-          
-        picture.push(pic);
-        fname.push(s);
-        lname.push(las);
-        email.push(ema);
-        jobtitle.push(job);
-        category.push(cat);
-        location.push(loc);
-        company.push(comp);
-        education.push(he);
-        tag.push(tagg);
-        bio.push(bioo);
-        price.push(pri);
-        linkedin.push(link);
-        twitter.push(twit);
-        interview1.push(whyy);
-        chat.push(chatt);
-        interview2.push(succ);
-        password.push(pass);
-        goals.push(goall);
-        challenge.push(chall);
-        oneone.push(one);
-        codingsupport.push(code);
-
-        res.redirect('/admin');
-      
-
-
-
-        // module.exports=items;
-        module.exports={picture, fname, lname, goals, oneone, codingsupport, chat, interview1, email, password, company , jobtitle, interview2, linkedin, twitter, category, location, price, tag, bio, challenge, education};
-        
-});
-
-
-// const {Donor} = require('../models/donor')
-// const {initializePayment, verifyPayment} = require('../config/paystack')(request);
-
-// const port = process.env.PORT || 3000;
-
-// const app = express();
-
-
-
 // app.get('/',(req, res) => {
 //     res.render('index.pug');
 // });
+
+// Passport Config
+require('./config/passport')(passport);
+
+// DB Config
+const db = require('./config/keys').mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect(
+    db,
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
+
+
+
+
+
+
+
+
 
 app.post('/paystack/pay', (req, res) => {
     const form = _.pick(req.body,['amount','email','full_name']);
@@ -261,6 +162,95 @@ app.get('/receipt/:id', (req, res)=>{
 app.get('/error', (req, res)=>{
     res.render('error.pug');
 })
+
+
+
+// //db connection
+// mongoose.Promise = global.Promise;
+// var dbPath = "mongodb://localhost:27017/data-base";
+// mongoose.connect(dbPath,{ useMongoClient: true });
+// mongoose.connection.once('open',function(){
+//   console.log("Database Connected Successfully.");
+// });
+// var userModel = mongoose.model('user');
+
+// //http method override middleware
+// app.use(methodOverride(function(req,res){
+//   if(req.body && typeof req.body === 'object' && '_method' in req.body){
+//     var method = req.body._method;
+//     delete req.body._method;
+//     return method;
+//   }
+// }));
+
+// // Session setup for cookies
+// var sessionInit = session({
+//                     name : 'userCookie',
+//                     secret : '9743-980-270-india',
+//                     resave : true,
+//                     httpOnly : true,
+//                     saveUninitialized: true,
+//                     store : new mongoStore({mongooseConnection : mongoose.connection}),
+//                     cookie : { maxAge : 80*80*800 }
+//                   });
+
+// app.use(sessionInit);
+// app.use(express.static(path.resolve(__dirname,'./public')));
+
+// // Setting ejs view engine
+// app.set('view engine', 'ejs');
+// app.set('views', path.resolve(__dirname,'./app/views'));
+
+// app.use(bodyParser.json({limit:'10mb',extended:true}));
+// app.use(bodyParser.urlencoded({limit:'10mb',extended:true}));
+// app.use(cookieParser());
+
+// //including models files.
+// fs.readdirSync("./models").forEach(function(file){
+//   if(file.indexOf(".js")){
+//     require("./models/" + file);
+//   }
+// });
+
+// //including controllers files.
+// fs.readdirSync("./controllers").forEach(function(file){
+//   if(file.indexOf(".js")){
+//     var route = require("./controllers/" + file);
+//     route.controller(app);
+//   }
+// });
+
+// // Error Handler
+// app.use(function(req,res){
+//   res.status(404).render('message',
+//       {
+//           title: "404",
+//           msg: "Page Not Found.",
+//           status: 404,
+//           error: "",
+//           user: req.session.user,
+//           chat: req.session.chat
+//       });
+// });
+
+// app.use(function(req,res,next){
+
+// 	if(req.session && req.session.user){
+// 		userModel.findOne({'email':req.session.user.email},function(err,user){
+
+// 			if(user){
+//         req.user = user;
+//         delete req.user.password;
+// 				req.session.user = user;
+//         delete req.session.user.password;
+// 				next();
+// 			}
+// 		});
+// 	}
+// 	else{
+// 		next();
+// 	}
+// });//end of Logged In User.
 
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
